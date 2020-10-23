@@ -10,22 +10,23 @@ class EmpWageComputation {
 		int dailyWage = 0;
 		int workHour = 0;
 
-		double check = Math.floor(Math.random()*10)%3;
+		int check = (int)Math.floor(Math.random()*10)%3;
 
-		if(check == IS_FULL_TIME) {
+		switch(check) {
 
-			workHour = 8;
-			System.out.println("Employee is Full Time");
-		}
-		else if(check == IS_PART_TIME) {
+			case 1:
+				workHour = 8;
+				System.out.println("Employee is Full Time");
+				break;
+			case 2:
+				workHour = 4;
+				System.out.println("Employee is Part Time");
+				break;
+			default:
+				workHour = 0;
+				System.out.println("Employee is Not Present");
+				break;
 
-			workHour = 4;
-			System.out.println("Employee is Part Time");
-		}
-		else {
-
-			workHour = 0;
-			System.out.println("Employee is Not Present");
 		}
 
 		dailyWage = workHour * WAGE_PER_HOUR;
